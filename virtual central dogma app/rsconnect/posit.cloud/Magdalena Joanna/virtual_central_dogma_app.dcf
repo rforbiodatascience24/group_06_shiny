@@ -1,0 +1,12 @@
+name: virtual_central_dogma_app
+title: virtual central dogma app
+username: Magdalena Joanna
+account: Magdalena Joanna
+server: posit.cloud
+hostUrl: https://api.posit.cloud/v1
+appId: 9172133
+bundleId: 9317848
+url: https://posit.cloud/content/9172133
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
