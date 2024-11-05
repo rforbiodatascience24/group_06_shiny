@@ -1,5 +1,7 @@
-library("bslib")
 # Define the User Interface (Frontend)
+library(bslib)
+library(shiny)
+
 ui <- page_fluid(
   layout_columns(
     col_widths = 12,
@@ -11,7 +13,7 @@ ui <- page_fluid(
     col_widths = 12,
     card(
       titlePanel("About"),
-      helpText("This app can generate a nucleotide sequence based on defined propabilities")
+      helpText("Describe what your app does...")
     )),
   layout_columns(
     col_widths = 12,
@@ -25,25 +27,25 @@ ui <- page_fluid(
                   width = "100%"),
       layout_columns(
         col_widths = c(3, 3, 3, 3),
-        numericInput(inputId = "prob_A",
+        numericInput(inputId = "probA",
                      label = "Probability of A",
                      value = 0.25,
                      min = 0,
                      max = 1,
                      step = 0.1),
-        numericInput(inputId = "prob_T",
+        numericInput(inputId = "probT",
                      label = "Probability of T",
                      value = 0.25,
                      min = 0,
                      max = 1,
                      step = 0.1),
-        numericInput(inputId = "prob_C",
+        numericInput(inputId = "probC",
                      label = "Probability of C",
                      value = 0.25,
                      min = 0,
                      max = 1,
                      step = 0.1),
-        numericInput(inputId = "prob_G",
+        numericInput(inputId = "probG",
                      label = "Probability of G",
                      value = 0.25,
                      min = 0,
@@ -56,17 +58,6 @@ ui <- page_fluid(
       card_header("Virtual Gene output"),
       mainPanel(
         verbatimTextOutput(outputId = "dna")
-      )
-    )),
-  layout_columns(
-    col_widths = 12,
-    card(
-      card_header("Transcribe DNA"),
-      helpText("This can transcribe DNA to RNA by replacing 'T' with 'U'"),
-      textInput(inputId = "dna_seq",
-                label = "DNA sequence"),
-      mainPanel(
-        verbatimTextOutput(outputId = "rna_seq")
       )
     )),
   layout_columns(
@@ -85,10 +76,5 @@ ui <- page_fluid(
         verbatimTextOutput(outputId = "protein")
       )
     )),
-  layout_columns(
-    col_widths = 12,
-    card(
-      card_header("Base frequencies"),
-      helpText("This implements base_freqs")
-    ))
+  
 )
