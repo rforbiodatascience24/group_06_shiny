@@ -1,3 +1,4 @@
+library("bslib")
 # Define the User Interface (Frontend)
 ui <- page_fluid(
   layout_columns(
@@ -10,7 +11,7 @@ ui <- page_fluid(
     col_widths = 12,
     card(
       titlePanel("About"),
-      helpText("Describe what your app does...")
+      helpText("This app can generate a nucleotide sequence based on defined propabilities")
     )),
   layout_columns(
     col_widths = 12,
@@ -56,5 +57,28 @@ ui <- page_fluid(
       mainPanel(
         verbatimTextOutput(outputId = "dna")
       )
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Transcribe DNA"),
+      helpText("This can transcribe DNA to RNA by replacing 'T' with 'U'"),
+      textInput(inputId = "dna_seq",
+                label = "DNA sequence"),
+      mainPanel(
+        verbatimTextOutput(outputId = "rna_seq")
+      )
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Translate RNA"),
+      helpText("This can translate RNA to proteins")
+    )),
+  layout_columns(
+    col_widths = 12,
+    card(
+      card_header("Base frequencies"),
+      helpText("This implements base_freqs")
     ))
 )

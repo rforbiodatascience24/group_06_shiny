@@ -1,15 +1,13 @@
-# Load needed libraries
 library("shiny")
 library("bslib")
-
-# Load needed functions
+#Load needed functions
 source(file = "app_functions.R")
 
-# Run the frontend user interface ui.R
+#Run the frontend user interface ui.R
 source(file = "ui.R")
 
-# Run the backend server server.R
+#Run the backen server server.R
 source(file = "server.R")
 
-# Run the Shiny app
+# Launch the shiny app
 shinyApp(ui = ui, server = server)
