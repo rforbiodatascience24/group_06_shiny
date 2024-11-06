@@ -12,7 +12,7 @@ server <- function(input, output) {
     transcribe_dna(dna = input$dna_seq)
   })
   
-  output$base_freq <- renderText({ # This is for simple base count func 4
+  output$base_counts <- renderText({ # This is for simple base count func 4
     base_freqs(gene = input$gene_seq)
   })
 }
