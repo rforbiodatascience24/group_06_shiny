@@ -58,7 +58,8 @@ ui <- page_fluid(
       mainPanel(
         verbatimTextOutput(outputId = "dna")
       )
-    )), # UI for transcribing DNA func 2 
+    )), 
+  # UI for transcribing DNA func 2 
   layout_columns(
     col_widths = 12,
     card(
@@ -69,7 +70,8 @@ ui <- page_fluid(
       mainPanel(
         verbatimTextOutput(outputId = "rna_seq")
       )
-    )), # UI for translating mRNA func 3
+    )), 
+  # UI for translating mRNA func 3
   layout_columns(
     col_widths = 12,
     card(
@@ -78,7 +80,8 @@ ui <- page_fluid(
         textInput(inputId="rna",
                   label = "input your RNA")
       )
-    )), # UI for outputting func 3
+    )), 
+  # UI for outputting func 3
   layout_columns(
     col_widths = 12,
     card(
@@ -86,16 +89,17 @@ ui <- page_fluid(
       mainPanel(
         verbatimTextOutput(outputId = "protein")
         )
-    )), # UI for input for base frequencies func 4
+    )), 
+  # UI for input for base frequencies func 4
   layout_columns(
     col_widths = 12,
     card(
       card_header("Base frequencies"),
       helpText("Input genetic sequence to return the bease frequency"),
-        textInput(inputId = "gene_seq",
-                  label = "DNA sequence for frequency"),
+      textInput(inputId = "gene_seq",
+                label = "DNA sequence for frequency"),
       mainPanel(
-        verbatimTextOutput(outputId = "base_freq")
+        tableOutput(outputId = "bases")
         )
      )),
   )

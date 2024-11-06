@@ -12,12 +12,15 @@ server <- function(input, output) {
     transcribe_dna(dna = input$dna_seq)
   })
   
+
   output$protein <- renderText({
     translate_rna(rna=input$rna)
   })
   
   output$base_freq <- renderText({ # This is for simple base count func 4
     base_freqs(gene = input$gene_seq)
+
+
   })
   
   
