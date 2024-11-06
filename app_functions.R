@@ -67,11 +67,13 @@ translate_rna <- function(rna){
 }
 
 # 4 Simple base counts
-base_freqs <- function(gene){
-  if (is.null(gene) || gene == "" ){
+# Simple base counts
+# Simple base counts
+base_freqs <- function(gene_seq){
+  if (is.null(gene_seq) || gene_seq == "" ){
     return( data.frame(dna_vec = factor(c("A", "C", "G", "T")),
                        Freq = c(0, 0, 0, 0)) ) }
-  dna_vec <- strsplit(x = gene,
+  dna_vec <- strsplit(x = gene_seq,
                       split = "")
   base_counts <- table(dna_vec)
   return( as.data.frame.table(base_counts) )
