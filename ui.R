@@ -96,10 +96,10 @@ ui <- page_fluid(
     card(
       card_header("Base frequencies"),
       helpText("Input genetic sequence to return the bease frequency"),
-        textInput(inputId = "gene_seq",
-                  label = "DNA sequence for frequency"),
+      textInput(inputId = "gene_seq",
+                label = "DNA sequence for frequency"),
       mainPanel(
-        verbatimTextOutput(outputId = "base_counts")
+        verbatimTextOutput(outputId = "bases")
         )
      )),
   )

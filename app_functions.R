@@ -67,17 +67,15 @@ translate_rna <- function(rna){
 }
 
 # 4 Simple base counts
-# Simple base counts
-# Simple base counts
-base_freqs <- function(gene_seq){
-  if (is.null(gene_seq) || gene_seq == "" ){
+base_freqs <- function(dna){
+  if (is.null(dna) || dna == "" ){
     return( data.frame(dna_vec = factor(c("A", "C", "G", "T")),
                        Freq = c(0, 0, 0, 0)) ) }
-  dna_vec <- strsplit(x = gene_seq,
+  dna_vec <- strsplit(x = dna,
                       split = "")
   base_counts <- table(dna_vec)
   return( as.data.frame.table(base_counts) )
 }
 
-# 5 (extra) reserve transcription
+# 5 (extra) reverse transcription
 
