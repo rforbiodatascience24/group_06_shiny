@@ -99,7 +99,7 @@ ui <- page_fluid(
       textInput(inputId = "gene_seq",
                 label = "DNA sequence for frequency"),
       mainPanel(
-        verbatimTextOutput(outputId = "bases")
+        tableOutput(outputId = "bases")
         )
      )),
   )
