@@ -76,6 +76,5 @@ base_freqs <- function(dna){
   base_counts <- table(dna_vec)
   return( as.data.frame.table(base_counts) )
 }
-
 # 5 (extra) reverse transcription
 
