@@ -8,9 +8,33 @@ server <- function(input, output) {
              base_probs = c(input$prob_A,input$prob_T,input$prob_C,input$prob_G))
   })
   
-  output$rna_seq <- renderText({ # This is for the virtual RNA polymerase func 2 
-    transcribe_dna(dna = input$dna_seq)
-  })
+
+#Reverse transcription   
+  counter <- reactiveVal(0)
+  
+  # Observe the button press event
+  observeEvent(input$reverse_boolean, {
+    counter(counter() + 1)
+
+    # Action every second time button is pressed
+    if (counter() %% 2 == 1) {
+      # Show notification on every second press
+      showNotification("Reverse Transcribed RNA")
+      
+      output$rna_seq <- renderText({
+        rev_transcribe(dna = input$dna_seq)
+      })
+    }
+    if (counter() %% 2 == 0) {
+      # Show notification on every second press
+      showNotification("Transcribed RNA")
+      
+      output$rna_seq <- renderText({
+        transcribe_dna(dna = input$dna_seq)
+      })
+    
+    }
+  }, ignoreInit = TRUE)
   
 
   output$protein <- renderText({
