@@ -6,7 +6,7 @@ source(file = "app_functions.R")
 #Run the frontend user interface ui.R
 source(file = "ui.R")
 
-#Run the backen server server.R
+#Run the backend server server.R
 source(file = "server.R")
 
 # Launch the shiny app

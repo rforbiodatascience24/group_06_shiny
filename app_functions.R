@@ -1,5 +1,5 @@
 # Define the "Virtual Gene"-function (See code for functions above)
-# Virtual gene
+# 1 Virtual gene
 gene_dna <- function(length, base_probs){
   if( length %% 3 != 0 ){
     stop("The argument to the parameter 'l' has to be divisible by 3")
@@ -18,7 +18,7 @@ gene_dna <- function(length, base_probs){
   return(dna_string)
 }
 
-# Virtual RNA polymerase
+# 2 Virtual RNA polymerase
 transcribe_dna <- function(dna){
   rna <- gsub(
     pattern = "T",
@@ -27,7 +27,7 @@ transcribe_dna <- function(dna){
   return(rna)
 }
 
-# Virtual Ribosome
+# 3 Virtual Ribosome
 translate_rna <- function(rna){
   if( is.null(rna) || rna == "" ){ return("") }
   l <- nchar(x = rna)
@@ -66,7 +66,7 @@ translate_rna <- function(rna){
   return(protein)
 }
 
-# Simple base counts
+# 4 Simple base counts
 base_freqs <- function(dna){
   if (is.null(dna) || dna == "" ){
     return( data.frame(dna_vec = factor(c("A", "C", "G", "T")),
@@ -76,6 +76,8 @@ base_freqs <- function(dna){
   base_counts <- table(dna_vec)
   return( as.data.frame.table(base_counts) )
 }
+
+# 5Reverse_transcription
 
 rev_transcribe <- function(dna){
   rna <- gsub(
@@ -87,3 +89,5 @@ rev_transcribe <- function(dna){
   
   return(rna_rev)
 }
+
+

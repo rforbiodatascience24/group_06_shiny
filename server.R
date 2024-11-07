@@ -3,13 +3,13 @@ source(file = "app_functions.R")
 
 # Define the Server (Backend)
 server <- function(input, output) {
-  output$dna <- renderText({
-    gene_dna(length = input$n_bases, base_probs = c(input$prob_A,input$prob_T,input$prob_C,input$prob_G))
+  output$dna <- renderText({ # This is for the output DNA: virtual gene func 1
+    gene_dna(length = input$n_bases,
+             base_probs = c(input$prob_A,input$prob_T,input$prob_C,input$prob_G))
   })
   
-  #If box checked reverse transcribe, otherwise transcribe
-  #if(input$reverse_boolean=='TRUE'){
-  
+
+#Reverse transcription   
   counter <- reactiveVal(0)
   
   # Observe the button press event
@@ -36,8 +36,17 @@ server <- function(input, output) {
     }
   }, ignoreInit = TRUE)
   
+
   output$protein <- renderText({
-    translate_rna(rna=input$rna)})
+    translate_rna(rna=input$rna)
+  })
+  
+  output$base_freq <- renderText({ # This is for simple base count func 4
+    base_freqs(gene = input$gene_seq)
+
+
+  })
+  
   
 }
 
