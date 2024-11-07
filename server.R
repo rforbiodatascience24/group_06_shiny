@@ -34,7 +34,7 @@ server <- function(input, output) {
       })
     
     }
-  }, ignoreInit = TRUE)
+  }, ignoreInit = FALSE)
   
 
   output$protein <- renderText({

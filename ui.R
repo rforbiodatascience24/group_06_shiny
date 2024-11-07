@@ -67,7 +67,7 @@ ui <- page_fluid(
       helpText("This can transcribe DNA to RNA by replacing 'T' with 'U'"),
       actionButton(
         inputId = 'reverse_boolean', 
-        label = 'Make Reverse transcription?'),
+        label = 'Transcribe / Reverse transcribe'),
       
       textInput(inputId = "dna_seq",
                 label = "DNA sequence input"),
