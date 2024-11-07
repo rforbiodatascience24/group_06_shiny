@@ -63,8 +63,12 @@ ui <- page_fluid(
     card(
       card_header("Transcribe DNA"),
       helpText("This can transcribe DNA to RNA by replacing 'T' with 'U'"),
+      actionButton(
+        inputId = 'reverse_boolean', 
+        label = 'Make Reverse transcription?'),
+      
       textInput(inputId = "dna_seq",
-                label = "DNA sequence"),
+                label = "DNA sequence input"),
       mainPanel(
         verbatimTextOutput(outputId = "rna_seq")
       )

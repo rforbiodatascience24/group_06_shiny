@@ -76,3 +76,14 @@ base_freqs <- function(dna){
   base_counts <- table(dna_vec)
   return( as.data.frame.table(base_counts) )
 }
+
+rev_transcribe <- function(dna){
+  rna <- gsub(
+    pattern = "T",
+    replacement = "U",
+    x = dna)
+  
+  rna_rev <- paste(rev(strsplit(rna, NULL)[[1]]), collapse = "")
+  
+  return(rna_rev)
+}
